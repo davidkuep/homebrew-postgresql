@@ -52,6 +52,9 @@ class Postgresql95 < Formula
 
     args << "--enable-cassert" if build.include? "enable-cassert"
     args << "--with-extra-version=+git" if build.head?
+    
+    # Our own editi that will select the python interpreter that we need
+    args << "PYTHON=/Volumes/Stripe/Applications/anaconda/bin/python3"
 
     system "./configure", *args
     system "make install-world"
